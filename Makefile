@@ -44,12 +44,12 @@ test: $(UWSGI_PID)
 	@echo "All tests ok."
 
 clean:
-	rm *.log
+	rm -f *.log
 	rm -rf $(UWSGI_SOURCE)
 	rm -f $(CGI_C_APP)
 
 $(UWSGI_SOURCE):
-	git clone git@github.com:unbit/uwsgi.git -b uwsgi-2.0 --depth=1
+	git clone https://github.com/unbit/uwsgi.git -b uwsgi-2.0 --depth=1
 
 $(UWSGI_BIN): $(UWSGI_SOURCE)
 	cd $(UWSGI_SOURCE) && make PROFILE=cgi
